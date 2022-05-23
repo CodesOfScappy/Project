@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alfa_slab_one</item>
+        <item>@font/amethysta</item>
+        <item>@font/arbutus</item>
+        <item>@font/architects_daughter</item>
+        <item>@font/aref_ruqaa_bold</item>
+        <item>@font/asset</item>
+        <item>@font/creepster</item>
+    </array>
+</resources>

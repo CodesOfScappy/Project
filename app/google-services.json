@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "53107718034",
+    "firebase_url": "https://scappymessanger-dc75e-default-rtdb.firebaseio.com",
+    "project_id": "scappymessanger-dc75e",
+    "storage_bucket": "scappymessanger-dc75e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:53107718034:android:30c3ee67a052b64cb5334b",
+        "android_client_info": {
+          "package_name": "com.example.messangertest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "53107718034-hf9s6hq8p41cnapq3hrse9nt6peqgbn3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.messangertest",
+            "certificate_hash": "620c29a62a86e8f9acc242683f7ac3d6e737a52d"
+          }
+        },
+        {
+          "client_id": "53107718034-35pk9l9obkad4942o9md97biopc8q4ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6QrMg-JfYbzF_ABQoWXrjRABT0-2D1gI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "53107718034-35pk9l9obkad4942o9md97biopc8q4ti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

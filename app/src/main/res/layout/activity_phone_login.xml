@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    tools:context=".view.auth.PhoneLoginActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <ImageView
+            android:id="@+id/app_logo"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/cute"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome"
+                android:selectAllOnFocus="false"
+                android:linksClickable="false"
+                android:autoLink="all"
+                android:textSize="37sp"
+                android:textStyle="bold|italic"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:fontFamily="serif-monospace"
+                android:includeFontPadding="false"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Here you can Authentication with your Mobile.  "
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="This is a OTP Process "
+                android:textStyle="italic"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+               />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please Enter your Mobile Number below"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="48dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="6dp"
+                android:outlineSpotShadowColor="@color/black"
+                android:outlineAmbientShadowColor="@color/cardview_dark_background" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="5dp" >
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:ccp_showNameCode="false" />
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="24dp"
+                        android:background="#d0d0d0"
+                        android:layout_marginStart="2dp"
+                        android:layout_gravity="center_vertical" />
+
+                    <EditText
+                        android:id="@+id/editText_carrierNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="2dp"
+                        android:hint="12345678"
+                        android:textColorHint="#7b7b7b"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="19sp"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="10dp"
+                        android:inputType="number"
+                        android:autofillHints="" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="16dp"
+                android:textColor="@color/white"
+                android:text="Next"
+                android:background="@drawable/accept_btn"
+                android:layout_gravity="center_horizontal"
+                />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
