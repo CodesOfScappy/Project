@@ -17,10 +17,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -32,6 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
     private  ActivitySettingsBinding binding;
     private FirebaseUser firebaseUser;
     private FirebaseFirestore firestore;
+
 
     FirebaseDatabase database;
     FirebaseStorage storage;
@@ -47,23 +45,23 @@ public class SettingsActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
 
 
-        database.getReference()
-                .child("image").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String image = snapshot.getValue(String.class);
-                        Glide.with(SettingsActivity.this)
-                                .load(image)
-                                .into(binding.imageProfile);
+             //  database.getReference()
+             //          .child("image").addValueEventListener(new ValueEventListener() {
+             //              @Override
+             //              public void onDataChange(@NonNull DataSnapshot snapshot) {
+             //                  String image = snapshot.getValue(String.class);
+             //                  Glide.with(SettingsActivity.this)
+             //                          .load(image)
+             //                          .into(binding.userImage);
 
 
-                    }
+             //              }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+             //              @Override
+             //              public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+             //              }
+             //          });
 
 
 
@@ -77,10 +75,10 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void initClickAction() {
-        binding.imageProfile.setOnClickListener(new View.OnClickListener() {
+        binding.userImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SettingsActivity.this,ProfileActivity.class));
+                startActivity(new Intent (SettingsActivity.this,ProfileActivity.class));
             }
         });
     }
@@ -91,7 +89,13 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 String userName = Objects.requireNonNull(documentSnapshot.get("userName")).toString();
+                String imageProfile = documentSnapshot.getString("imageProfile");
+
+
                 binding.tvUsername.setText(userName);
+                Glide.with(SettingsActivity.this).load(imageProfile).into(binding.userImage);
+
+
 
             }
         }).addOnFailureListener(new OnFailureListener() {

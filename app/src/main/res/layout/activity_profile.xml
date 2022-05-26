@@ -34,18 +34,19 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/visit_profile_image"
+            android:transitionName="image"
             android:layout_width="200dp"
             android:layout_height="200dp"
 
             android:src="@drawable/placeholder_image" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:background="@drawable/ic_addimage"
-            android:layout_alignBottom="@id/visit_profile_image"
             android:layout_alignEnd="@id/visit_profile_image"
-            />
+            android:layout_alignBottom="@id/visit_profile_image"
+            android:background="@drawable/ic_addimage" />
 
 
     </RelativeLayout>
@@ -56,19 +57,17 @@
         android:orientation="vertical">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
             android:orientation="horizontal">
-
 
            <ImageView
                android:layout_width="35dp"
                android:layout_height="35dp"
                android:src="@drawable/ic_person24dp"
                app:tint="@color/black" />
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,6 +90,7 @@
                         android:text="Name" />
 
                     <ImageButton
+                        android:id="@+id/ln_edit_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_edit_24"
