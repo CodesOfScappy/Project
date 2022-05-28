@@ -1,5 +1,6 @@
 package com.example.messangertest.view.settings;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import com.bumptech.glide.Glide;
 import com.example.messangertest.R;
 import com.example.messangertest.databinding.ActivitySettingsBinding;
+import com.example.messangertest.view.MainActivity;
 import com.example.messangertest.view.profile.ProfileActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,29 +41,18 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this,R.layout.activity_settings);
 
+        //test Back
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SettingsActivity.this,MainActivity.class));
+            }
+        });
+
         firestore = FirebaseFirestore.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
-
-
-             //  database.getReference()
-             //          .child("image").addValueEventListener(new ValueEventListener() {
-             //              @Override
-             //              public void onDataChange(@NonNull DataSnapshot snapshot) {
-             //                  String image = snapshot.getValue(String.class);
-             //                  Glide.with(SettingsActivity.this)
-             //                          .load(image)
-             //                          .into(binding.userImage);
-
-
-             //              }
-
-             //              @Override
-             //              public void onCancelled(@NonNull DatabaseError error) {
-
-             //              }
-             //          });
 
 
 

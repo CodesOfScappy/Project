@@ -5,6 +5,7 @@
  import android.os.Handler;
  import android.view.Menu;
  import android.view.MenuItem;
+ import android.view.View;
  import android.widget.Toast;
 
  import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@
  import com.example.messangertest.menu.CallsFragment;
  import com.example.messangertest.menu.ChatsFragment;
  import com.example.messangertest.menu.StatusFragment;
+ import com.example.messangertest.view.contact.ContactsActivity;
  import com.example.messangertest.view.settings.SettingsActivity;
 
  import java.util.ArrayList;
@@ -125,23 +127,29 @@
      }
 
      private void changeFabIcon(final int index){
-        binding.fabActionBtn.hide();
+         binding.fabActionBtn.hide();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 switch (index){
-                    case 0 : binding.fabActionBtn.setImageDrawable(getDrawable(R.drawable.ic_chat_24dp));break;
+                    case 0 : binding.fabActionBtn.setImageDrawable(getDrawable(R.drawable.ic_chat_24dp));
+                        binding.fabActionBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                startActivity(new Intent(MainActivity.this, ContactsActivity.class));
+
+                            }
+                        });
+                    break;
                     case 1 : binding.fabActionBtn.setImageDrawable(getDrawable(R.drawable.ic_camera_alt_24dp));break;
                     case 2 : binding.fabActionBtn.setImageDrawable(getDrawable(R.drawable.ic_call_back_24dp));break;
 
                 }
                 binding.fabActionBtn.show();
 
-
-
             }
-        }, 200);
+        },200);
 
      }
  }

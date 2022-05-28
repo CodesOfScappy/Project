@@ -25,28 +25,30 @@
             app:title="Scappy Messanger"/>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabGravity="fill"
         android:layout_below="@id/app_bar"
-        app:tabIndicatorColor="#FFFFFF"
-        app:tabTextColor="@color/white"
+        android:visibility="visible"
+        app:tabBackground="@color/colorPrimaryDark"
+        app:tabGravity="fill"
         app:tabIndicator="@color/colorPrimary"
-        app:tabSelectedTextColor="#ADACAE"
+        app:tabIndicatorColor="#FFFFFF"
         app:tabIndicatorHeight="3dp"
-        app:tabBackground="@color/colorPrimaryDark">
+        app:tabSelectedTextColor="#ADACAE"
+        app:tabTextColor="@color/white">
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
-        android:layout_below="@id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/tab_layout"
         android:visibility="visible"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_action_btn"
@@ -54,11 +56,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:src="@drawable/ic_chat_24dp" />
 
 </RelativeLayout>

@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.databinding.DataBindingUtil;
@@ -36,6 +37,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.example.messangertest.view.startup.SplashScreenActivity;
+import com.example.messangertest.view.settings.SettingsActivity;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -67,6 +70,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
+        //back test
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this,SettingsActivity.class));
+            }
+        });
 
         progressDialog = new ProgressDialog(this);
 
@@ -108,7 +119,16 @@ public class ProfileActivity extends AppCompatActivity {
                 showBottomSheetEditName();
             }
         });
+
+        binding.btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialoSignOut();
+
+            }
+        });
     }
+
     // Methode zum Anzeigen der Ansicht --> bottom_sheet_pick.xml
     private void showBottomSheetPickPhoto() {
         @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.bottom_sheet_pick, null);
@@ -285,6 +305,30 @@ public class ProfileActivity extends AppCompatActivity {
                 getInfo();
             }
         });
+    }
+
+    private void showDialoSignOut() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+        builder.setMessage("Do you want to sign out?");
+        builder.setPositiveButton("Sign out", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(ProfileActivity.this, SplashScreenActivity.class));
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }
